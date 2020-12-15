@@ -11,9 +11,10 @@
 from bs4 import BeautifulSoup
 import requests as req
 import pandas as pd
-import matplotlib.pyplot as plt
 import re
+import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.ticker as ticker
 
 wiki = "https://www.worldometers.info/world-population/world-population-by-year/"
 
@@ -43,6 +44,9 @@ y_urban.reverse()
 # 	print(''.join(re.findall("\d*", i)))
 
 fig, ax = plt.subplots()
+
+ax.xaxis.set_major_locator(ticker.MultipleLocator(2))
+ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
 
 ax.plot(x_world, y_world, 'g', label='World Pop')
 ax.plot(x_world, y_urban, 'r', label='Urban Pop')

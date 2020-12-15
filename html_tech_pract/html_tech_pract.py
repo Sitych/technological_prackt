@@ -19,22 +19,6 @@ resp = req.get(wiki)
 soup = BeautifulSoup(resp.text, 'lxml')
 res_table = soup.find_all('table', {'class' : 'wikitable'})
 
-
-# all_data = []
-# for table in res_table:
-# 	for tr in table.find_all('tr'):
-# 		all_data.append(' '.join(tr.text.split('\n')))
-
-# victory_data = []
-# for table in res_table:
-# 	for tr in table.find_all('tr', {'style' : 'background:#FAEB86'}):
-# 		victory_data.append(' '.join(tr.text.split('\n')))
-
-# for table in res_table:
-# 	year = []
-# 	for td in filter(None,table.find_all('td', {'style' : 'background:#FAEB86'})):
-# 		victory_data.append(td.text)
-
 all_data = []
 victory_data = []
 for table in res_table:
